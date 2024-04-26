@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4393d8;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>
+<body>
+
+<h2>LEARNING MANAGEMENT SYSTEM</h2>
+
+
+<div class="navbar">
+  <a class="active" href="#d0" onclick="d0()" ><i class="fa fa-fw fa-home"></i> Course</a> 
+  <a href="#d1" onclick="d1()"><i class="fa fa-fw fa-search"></i> Learnig Module</a> 
+  <a href="#d2" onclick="d2()"><i class="fa fa-fw fa-envelope"></i>Learnig Type</a> 
+  
+</div>
+<div id="d0" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #4393d8;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    <div ng-app="depRApp" ng-controller="depRCtrl">
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Department Registration</h1>
+     
+      <hr>
+  
+      <label for="dname"><b>Course Name</b></label>
+      <input type="text" placeholder="Enter Name" name="dname" id="dname" required>
+  
+      <label for="dloc"><b>Course ID</b></label>
+      <input type="text" placeholder="Enter ID" name="dloc" id="dloc"  required>
+      
+      <label for="sdate"><b>Credits </b></label>
+      <input type="number" placeholder="Enter Credits" name="sdate" id="sdate" required>
+
+  
+      <button type="button" class="registerbtn" id="registerbtn">Insert</button>
+      
+      <div name="dshow" id="dshow" ng-bind-html="dshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+<div id="d1" style="display: none;"> 
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color:#4393d8;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Learning Module</h1>
+     
+      <hr>
+  
+      <label for="rtname"><b>Learning Module Name</b></label>
+      <input type="text" placeholder="Enter Learning Module Name" name="rtname" id="rtname" required>
+
+      <label for="lmtyp"><b>Learning Module type</b></label>
+      <input type="text" placeholder="Enter Learning Module Type" name="lmtyp" id="lmtyp" required>
+  
+      <label for="rtdes"><b>Type Description </b></label>
+      <textarea placeholder="Enter Type Description" name="rtdes" id="rtdes"  required>
+        </textarea>
+      
+      
+  
+      <button type="button" class="registerbtn" id="rtregisterbtn">Insert</button>
+      
+      <div name="rtshow" id="rtshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+
+<div id="d2" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color:#4393d8;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Learning Type </h1>
+     
+      <hr>
+      <label for="rid"><b>Type id</b></label>
+      <input type="number" placeholder="Enter id" name="rid" id="rid" required>
+      <br><br>
+      <label for="rname"><b>Type Name</b></label>
+      <input type="text" placeholder="Enter Name" name="rname" id="rname" required>
+  
+      <label for="rdes"><b>Type</b></label>
+      <textarea placeholder="Enter Description" name="rdes" id="rdes"  required>
+        </textarea>
+      <br><br>
+        <label for="rrtid"><b>Resource Type </b></label>
+      <select name="rrtid" id="rrtid" required>
+        </select><br><br>
+      
+      <input type="file" id="rfile" name="rfile">
+      <br><br>
+      </select><br>
+
+
+      <button type="button" class="registerbtn" id="rregisterbtn">Insert</button>
+      
+      <div name="rshow" id="rshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+</div>
+
+<div id="d3" style="display: none;">
+    Login..
+</div>
+</body>
+<script type="text/javascript">
+    function  d0() {
+        document.getElementById("d0").style.display = "block";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }   
+    function  d1() {
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "block";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d2(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "block";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d3(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "block";      
+    }
+</script>
+<script>
+
+  $(document).ready(function() {
+    loaddepartments();
+    loadrtypes();
+    loadresources();
+    loadresourcetypenames();
+    function loaddepartments(){
+
+       $.ajax({
+        url: 'http://127.0.0.1:5000/deptshow',
+        type: 'POST',
+        success: function(data){
+          $('#dshow').html(data);
+        }
+      });
+    }
+
+    function loadrtypes(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/rtshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rtshow').html(data);
+        }
+      });
+    }
+
+    function loadresources(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/rshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rshow').html(data);
+        }
+       });
+    }
+
+    function loadresourcetypenames(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/rtnameshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#rrtid').html(data);
+        }
+       });
+    }
+ 
+    $("#registerbtn").click(function(){
+      var dname = $('#dname').val();
+      var dloc = $('#dloc').val();
+      var sdate = $('#sdate').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/deptinsert',
+        type: 'POST',
+        data: {dname: dname, dloc: dloc, sdate: sdate},
+        success: function(data){
+          alert(data);
+          loaddepartments();
+        }
+      });
+    });
+
+    $("#rtregisterbtn").click(function(){
+      var rtname = $('#rtname').val();
+      var lmtyp = $('#lmtyp').val();
+      var rtdes = $('#rtdes').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/rtinsert',
+        type: 'POST',
+        data: {rtname: rtname,lmtyp: lmtyp, rtdes: rtdes},
+        success: function(data){
+          alert(data);
+          loadrtypes();
+        }
+      });
+    });
+  
+   $("#rregisterbtn").click(function(){
+    var rid = $('#rid').val();
+    var rname = $('#rname').val();
+    var rdes = $('#rdes').val();
+    var rrtid = $('#rrtid').val();
+    var files = $('#rfile')[0].files[0]; 
+    var fd=new FormData();
+    fd.append('rid',rid);
+    fd.append('rname',rname);
+    fd.append('rdes',rdes);
+    fd.append('rrtid',rrtid);
+    fd.append('rfile',files);
+    //alert(files);
+     $.ajax({
+        url: 'http://127.0.0.1:5000/rinsert',
+        type: 'POST',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data){
+          alert(data);
+          loadresources();
+        }
+      });
+    });
+  });
+
+
+   
+       
+
+    </script>
+
+
+</html> 

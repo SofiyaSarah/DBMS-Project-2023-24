@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning management system</title>
+  <link rel="stylesheet" href="style.css">  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>  
+<style>
+    body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #6b9bc8;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  width: 200px;
+  padding: 20px;
+  background-color: #9dbad4;
+}
+
+aside img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.content li {
+  margin-bottom: 5px;
+}
+
+.chart {
+  width: 100%;
+  height: 300px;
+  background-color: #ddd;
+}
+.card {
+    background-color: #4393d8;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+ }
+.card h3 {
+    color: #333;
+    margin-top: 0;
+}
+.card p {
+    color: #343232;
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+    <h2>Welcome to Learning management system</h2>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <h2>Name</h2>
+      <ul>
+        <li><a href="#">Course</a></li>
+        <li><a href="#">Learning Module</a></li>
+        <li><a href="#">Learning Type</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </aside>
+
+    <section class="content">
+      <h2>Recent Activity</h2>
+
+      <div class="card">
+        <h2>Module 1</h2>
+        <p>Content for Module 1</p>
+        <a href="#">More info</a>
+      </div>
+      
+      <div class="card">
+        <h2>Module 2</h2>
+        <p>Content for Module 2</p>
+        <a href="#">More info</a>
+      </div>
+      
+      <div class="card">
+        <h2>Module 3</h2>
+        <p>Content for Module 3</p>
+        <a href="#">More info</a>
+      </div>
+      
+      <div class="card">
+        <h2>Module 4</h2>
+        <p>Content for Module 4</p>
+        <a href="#">More info</a>
+      </div>
+      
+      <div class="card">
+        <h2>Module 5</h2>
+        <p>Content for Module 5</p>
+        <a href="#">More info</a>
+      </div>
+      <h2>Charts and Graphs</h2>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawStudentsChart);
+    google.charts.setOnLoadCallback(drawTimeSpentChart);
+
+    function drawStudentsChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Students');
+
+      // Replace the following with your actual data
+      data.addRows([
+        [new Date(2024, 2, 5), 10],  // March 5th, 2024: 10 Students
+        [new Date(2024, 2, 6), 15],  // March 6th, 2024: 15 Students
+        [new Date(2024, 2, 7), 12],  // March 7th, 2024: 12 Students
+        // Add more data points as needed
+      ]);
+
+      var options = {
+        title: 'Students per Day',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('studentsChart'));
+      chart.draw(data, options);
+    }
+
+    function drawTimeSpentChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Time Spent (minutes)');
+
+      // Replace the following with your actual data
+      data.addRows([
+        [new Date(2024, 2, 5), 60],  // March 5th, 2024: 60 minutes
+        [new Date(2024, 2, 6), 45],  // March 6th, 2024: 45 minutes
+        [new Date(2024, 2, 7), 90],  // March 7th, 2024: 90 minutes
+        // Add more data points as needed
+      ]);
+
+      var options = {
+        title: 'Time Spent in Application (minutes)',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('timeSpentChart'));
+      chart.draw(data, options);
+    }
+  </script>
+  <h2>Students per Day</h2>
+  <div id="studentsChart"></div>
+
+  <h2>Time Spent in Application (minutes)</h2>
+  <div id="timeSpentChart"></div>
+    </section>
+  </main>
+</body>
+</html>

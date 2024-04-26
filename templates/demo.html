@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning management system</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #feecfa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #080808;
+        }
+
+        #navigation {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #navigation a {
+            text-decoration: none;
+            color: #080808;
+            margin: 0 20px;
+        }
+
+        #options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            align-items: flex-start;
+        }
+
+        button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4393d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            width: 200px;
+        }
+
+        button img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>LEARNING MANAGEMENT SYSTEM</h1>
+
+    <div id="navigation">
+        <div id="left-navigation">
+            <a href="">About</a>
+            <a href="">Contact</a>
+        </div>
+    </div>
+
+    <div id="options">
+
+        <button onclick="redirectTo('login2.html')">
+            Instructor
+        </button>
+
+        <button onclick="redirectTo('login.html')">
+            Student
+        </button>
+    </div>
+
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+
+</html>

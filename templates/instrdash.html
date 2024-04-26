@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>
+<body>
+
+<h2>Department Resouce Management</h2>
+
+
+<div class="navbar">
+  <a class="active" href="#d0" onclick="d0()" ><i class="fa fa-fw fa-home"></i> Course</a> 
+  <a href="#d1" onclick="d1()"><i class="fa fa-fw fa-search"></i> Learning Type</a> 
+  <a href="#d2" onclick="d2()"><i class="fa fa-fw fa-envelope"></i>Learning Module</a> 
+  <a href="#d3" onclick="d3()"><i class="fa fa-fw fa-user"></i> Logout</a>
+</div>
+<div id="d0" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    <div ng-app="depRApp" ng-controller="depRCtrl">
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Course Management</h1>
+     
+      <hr>
+  
+      <label for="dname"><b>Course Name</b></label>
+      <input type="text" placeholder="Enter Name" name="cname" id="cname" required>
+  
+      <label for="dloc"><b>Course ID </b></label>
+      <input type="text" placeholder="Enter Course ID" name="cid" id="cid"  required>
+      
+      <label for="sdate"><b>Credits</b></label>
+      <input type="number" placeholder="Credits" name="credits" id="credits" required>
+
+  
+      <button type="button" class="registerbtn" id="registerbtn">Create</button>
+      
+      <div name="cshow" id="cshow" ></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+<div id="d1" style="display: none;"> 
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Learning Module Type</h1>
+     
+      <hr>
+  
+      <label for="rtname"><b> Type Name</b></label>
+      <input type="text" placeholder="Enter Name" name="tname" id="tname" required>
+
+      
+      <label for="rtname"><b> Type ID</b></label>
+      <input type="number" placeholder="Enter ID" name="tid" id="tid" required>
+  
+      <label for="rtdes"><b>Type Description </b></label>
+      <textarea placeholder="Enter Type Description" name="tdes" id="tdes"  required>
+        </textarea>
+      
+      
+  
+      <button type="button" class="registerbtn" id="tregisterbtn">Insert</button>
+      
+      <div name="tshow" id="tshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+  
+</div>
+
+<div id="d2" style="display: none;">
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+    
+  <form action="/action_page.php">
+    <div class="container">
+     
+
+      <h1>Learning Module </h1>
+     
+      <hr>
+
+      <label for="rname"><b>Module ID</b></label>
+      <input type="text" placeholder="Enter Module ID" name="mid" id="mid" required>
+  
+      <label for="rname"><b>Module Name</b></label>
+      <input type="text" placeholder="Enter Name" name="mname" id="mname" required>
+  
+      <label for="rdes"><b>Module Content</b></label>
+      <textarea placeholder="Enter Content" name="mc" id="mc"  required>
+        </textarea>
+      <br><br>
+        <label for="rrtid"><b>Course </b></label>
+      <select name="mcid" id="mcid" required>
+        </select><br><br>
+
+        <label for="rrtid"><b>Module Type </b></label>
+        <select name="mtid" id="mtid" required>
+          </select><br><br>
+      
+      
+  
+      File:<input type="file" id="mfile" name="mfile">
+      <br><br>
+      
+
+
+      <button type="button" class="registerbtn" id="mregisterbtn">Create</button>
+      
+      <div name="mshow" id="mshow"></div>
+    </div>
+    
+    
+  </form>
+  </div>
+  </body>
+  </html>
+</div>
+
+<div id="d3" style="display: none;">
+    Login..
+</div>
+</body>
+<script type="text/javascript">
+    function  d0() {
+        document.getElementById("d0").style.display = "block";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }   
+    function  d1() {
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "block";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d2(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "block";
+        document.getElementById("d3").style.display = "none";
+    }
+    function d3(){
+        document.getElementById("d0").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("d2").style.display = "none";
+        document.getElementById("d3").style.display = "block";      
+    }
+</script>
+<script>
+
+  $(document).ready(function() {
+    loadcourses();
+    loadtypes();
+    loadmodules();
+    getcoursenames();
+    gettypenames();
+    /*loadresourcetypenames();*/
+    function loadcourses(){
+
+       $.ajax({
+        url: 'http://127.0.0.1:5000/cshow',
+        type: 'POST',
+        success: function(data){
+          $('#cshow').html(data);
+        }
+      });
+    }
+
+    function loadtypes(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/tshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#tshow').html(data);
+        }
+      });
+    }
+
+    function loadmodules(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/mshow',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#mshow').html(data);
+        }
+       });
+    }
+
+    function getcoursenames(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/getcoursenames',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#mcid').html(data);
+        }
+       });
+    }
+
+    function gettypenames(){
+       $.ajax({
+        url: 'http://127.0.0.1:5000/gettypenames',
+        type: 'POST',
+        success: function(data){
+          //alert(data);
+          $('#mtid').html(data);
+        }
+       });
+    }
+ 
+    $("#registerbtn").click(function(){
+      var cid = $('#cid').val();
+      var cname = $('#cname').val();
+      var credits = $('#credits').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/cinsert',
+        type: 'POST',
+        data: {cid:cid,cname:cname,credits:credits},
+        success: function(data){
+          alert(data);
+          loadcourses();
+        }
+      });
+    });
+
+    $("#tregisterbtn").click(function(){
+      var tname = $('#tname').val();
+      var tdes = $('#tdes').val();
+      var tid = $('#tid').val();
+       $.ajax({
+        url: 'http://127.0.0.1:5000/tinsert',
+        type: 'POST',
+        data: {tname:tname,tdes:tdes,tid:tid},
+        success: function(data){
+          alert(data);
+          loadtypes();
+        }
+      });
+    });
+  
+   $("#mregisterbtn").click(function(){
+    var mname = $('#mname').val();
+    var mc = $('#mc').val();
+    var mcid = $('#mcid').val();
+    var mtid = $('#mtid').val();
+    var mid = $('#mid').val();
+    
+    var files = $('#mfile')[0].files[0]; 
+    var fd=new FormData();
+    fd.append('mname',mname);
+    fd.append('mc',mc);
+    fd.append('mcid',mcid);
+    fd.append('mtid',mtid);
+    fd.append('mid',mid);
+   
+    fd.append('mfile',files);
+    //alert(files);
+     $.ajax({
+        url: 'http://127.0.0.1:5000/minsert',
+        type: 'POST',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data){
+          alert(data);
+          loadmodules();
+        }
+      });
+    });
+  });
+
+
+   
+       
+
+    </script>
+
+
+</html> 
